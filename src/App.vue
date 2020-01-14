@@ -4,6 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <a-button type="primary">Button></a-button>
+    <a href="">link</a>
     <router-view />
   </div>
 </template>
@@ -15,6 +17,10 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#nprogress .bar {
+  background: #118060 !important; //自定义颜色
 }
 
 #nav {

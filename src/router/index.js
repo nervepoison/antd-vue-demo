@@ -2,6 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
+
+// import NotFound from "./views/404";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -25,6 +30,17 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
+});
+
+router.beforeEach((to, form, next) => {
+  console.log(to);
+  console.log(form);
+  NProgress.start();
+  next();
+});
+
+router.afterEach(() => {
+  NProgress.done();
 });
 
 export default router;
