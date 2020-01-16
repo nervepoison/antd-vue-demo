@@ -33,8 +33,6 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, form, next) => {
-  console.log(to);
-  console.log(form);
   NProgress.start();
   next();
 });

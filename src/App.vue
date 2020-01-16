@@ -1,38 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <a-locale-provider :locale="locale">
+    <div id="app">
+      <div id="nav">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
+      <router-view />
+      <a-pagination :defaultCurrent="1" :total="50" showSizeChanger />
+      <a-button v-on:click="click()" type="primary">button</a-button>
     </div>
-    <a-button type="primary">Button></a-button>
-    <a href="">link</a>
-    <router-view />
-  </div>
+  </a-locale-provider>
 </template>
+
+<script>
+import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
+export default {
+  data() {
+    return {
+      locale: zhCN
+    };
+  },
+  mounted() {},
+  methods: {
+    click() {
+      alert();
+      console.log(this.locale);
+    }
+  }
+};
+</script>
 
 <style lang="less">
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  height: 100%;
 }
 
 #nprogress .bar {
-  background: #118060 !important; //自定义颜色
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  //background: #118060 !important; //自定义颜色
 }
 </style>
